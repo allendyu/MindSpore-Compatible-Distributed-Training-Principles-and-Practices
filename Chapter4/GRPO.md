@@ -169,20 +169,22 @@ done
 ```
 配置完成后执行```bash examples/r1/qwen25/r1_zero_qwen25_7b_master.sh```即可启动GRPO的训练任务。
 
-# 其他注意事项
-1. 如果出现xxx：command not found 或者 xxx：No such file or directory的报错，但是xxx可以通过pip show找到，
+# 注意事项
+1. 请参考[NNAL安装](https://www.hiascend.com/document/detail/zh/canncommercial/82RC1/softwareinst/instg/instg_0008.html?Mode=PmIns&InstallType=local&OS=openEuler&Software=cannToolKit#ZH-CN_TOPIC_0000002396687965__Software-cannToolKit-cannNNAE)安装NNAL神经网络加速库
+
+2. 如果出现xxx：command not found 或者 xxx：No such file or directory的报错，但是xxx可以通过pip show找到，
 说明没有将对应的依赖添加到环境变量中，需要自己手动配置一下环境变量，以ray举例：<br>
 先使用```pip show ray```找到ray的安装路径（Location字段），然后将其添加到path中，参考以下命令行<br>
 ```
 export PATH=$PATH:/usr/local/python3.10.14/bin/
 ```
 
-2. 出现``ConnectionError: Ray is trying to start at 172.17.0.10:6344, but is already running at 172.17.0.10:6344. 
+3. 出现``ConnectionError: Ray is trying to start at 172.17.0.10:6344, but is already running at 172.17.0.10:6344. 
 Please specify a different port using the `--port` flag of `ray start` command. ``
 是因为之前已经在这个端口启动过ray集群了，现在再从这个端口启动就产生了冲突，需要在每次拉起训练脚本后，
 使用```ray stop -force```强制关闭ray集群后，重新启动训练脚本。
 
-3. 请在`MindSpeed-Core-MS`路径下执行以下命令安装vllm依赖：
+4. 请在`MindSpeed-Core-MS`路径下执行以下命令安装vllm依赖：
 
 ```
 cd vllm
