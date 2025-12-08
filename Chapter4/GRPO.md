@@ -5,7 +5,7 @@
 |:------------------|:-------|
 | CANN              | 8.2RC1 |
 | Python            | 3.10   |
-| MindSpore         | 2.7.1  |
+| MindSpore         | 2.7.0  |
 | MindSpeed-Core-MS | r0.3.0 |
 
 [dockerfile_unified](./dockerfiles/dockfile_unified)中打入了**CANN**与**Python**, 开发者可基于此镜像或任何包含指定**CANN**和**Python**版本的环境中完成实验。
