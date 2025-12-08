@@ -13,7 +13,7 @@
 
 ## MindSpore安装
 
-安装MindSpore 2.7.1版本，安装教程请参考[MindSpore快速安装](https://www.mindspore.cn/install)。
+安装MindSpore 2.7.0版本，安装教程请参考[MindSpore快速安装](https://www.mindspore.cn/install)。
 
 执行以下命令
 
@@ -181,3 +181,10 @@ export PATH=$PATH:/usr/local/python3.10.14/bin/
 Please specify a different port using the `--port` flag of `ray start` command. ``
 是因为之前已经在这个端口启动过ray集群了，现在再从这个端口启动就产生了冲突，需要在每次拉起训练脚本后，
 使用```ray stop -force```强制关闭ray集群后，重新启动训练脚本。
+
+3. 请在`MindSpeed-Core-MS`路径下执行以下命令安装vllm依赖：
+
+```
+cd vllm
+pip install -r requirements-common.txt
+```
